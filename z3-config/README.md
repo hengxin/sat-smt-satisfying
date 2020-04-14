@@ -1,5 +1,5 @@
-# sat-smt-satisfying
-SAT and SMT
+# z3-config
+
 
 
 
