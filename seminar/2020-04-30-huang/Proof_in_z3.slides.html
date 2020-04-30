@@ -1,64 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta charset="utf-8" />
 
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="chrome=1" />
-
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-
-<title>Proof_in_z3 slides</title>
+<title>Proof_in_z3</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
-<!-- General and theme style sheets -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/reveal.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/theme/simple.css" id="theme">
 
-<!-- If the query includes 'print-pdf', include the PDF print sheet -->
-<script>
-if( window.location.search.match( /print-pdf/gi ) ) {
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/print/pdf.css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
-}
-
-</script>
-
-<!--[if lt IE 9]>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/html5shiv.js"></script>
-<![endif]-->
-
-<!-- Loading the mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration -->
-
-<!-- Get Font-awesome from cdn -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -13072,142 +13021,82 @@ ul.typeahead-list  > li > a.pull-right {
 
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
-.reveal {
-  font-size: 160%;
+body {
+  overflow: visible;
+  padding: 8px;
 }
-.reveal pre {
-  width: inherit;
-  padding: 0.4em;
-  margin: 0px;
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-}
-.reveal pre code {
-  padding: 0px;
-}
-.reveal section img {
-  border: 0px solid black;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
-}
-.reveal i {
-  font-style: normal;
-  font-family: FontAwesome;
-  font-size: 2em;
-}
-.reveal .slides {
-  text-align: left;
-}
-.reveal.fade {
-  opacity: 1;
-}
-.reveal .progress {
-  position: static;
-}
-.reveal .controls .navigate-left,
-.reveal .controls .navigate-left.enabled {
-  border-right-color: #727272;
-}
-.reveal .controls .navigate-left.enabled:hover,
-.reveal .controls .navigate-left.enabled.enabled:hover {
-  border-right-color: #dfdfdf;
-}
-.reveal .controls .navigate-right,
-.reveal .controls .navigate-right.enabled {
-  border-left-color: #727272;
-}
-.reveal .controls .navigate-right.enabled:hover,
-.reveal .controls .navigate-right.enabled.enabled:hover {
-  border-left-color: #dfdfdf;
-}
-.reveal .controls .navigate-up,
-.reveal .controls .navigate-up.enabled {
-  border-bottom-color: #727272;
-}
-.reveal .controls .navigate-up.enabled:hover,
-.reveal .controls .navigate-up.enabled.enabled:hover {
-  border-bottom-color: #dfdfdf;
-}
-.reveal .controls .navigate-down,
-.reveal .controls .navigate-down.enabled {
-  border-top-color: #727272;
-}
-.reveal .controls .navigate-down.enabled:hover,
-.reveal .controls .navigate-down.enabled.enabled:hover {
-  border-top-color: #dfdfdf;
-}
-.reveal .progress span {
-  background: #727272;
-}
-div.input_area {
-  padding: 0.06em;
-}
-div.code_cell {
-  background-color: transparent;
-}
-div.prompt {
-  width: 11ex;
-  padding: 0.4em;
-  margin: 0px;
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-  text-align: right;
-}
-div.output_area pre {
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-}
-div.output_prompt {
-  /* 5px right shift to account for margin in parent container */
-  margin: 5px 5px 0 0;
-}
-div.text_cell.rendered .rendered_html {
-  /* The H1 height seems miscalculated, we are just hidding the scrollbar */
-  overflow-y: hidden;
-}
-a.anchor-link {
-  /* There is still an anchor, we are only hidding it */
-  display: none;
-}
-.rendered_html p {
-  text-align: inherit;
-}
-::-webkit-scrollbar
-{
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar *
-{
-  background:transparent;
-}
-::-webkit-scrollbar-thumb
-{
-  background: #727272 !important;
+
+div#notebook {
+  overflow: visible;
+  border-top: none;
+}@media print {
+  div.cell {
+    display: block;
+    page-break-inside: avoid;
+  } 
+  div.output_wrapper { 
+    display: block;
+    page-break-inside: avoid; 
+  }
+  div.output { 
+    display: block;
+    page-break-inside: avoid; 
+  }
 }
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-</head>
-
-
+<!-- Loading mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration --></head>
 <body>
+  <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
 
-
-<div class="reveal">
-<div class="slides">
-<section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="z3&#20013;&#30340;&#31616;&#21333;&#35777;&#26126;">z3&#20013;&#30340;&#31616;&#21333;&#35777;&#26126;<a class="anchor-link" href="#z3&#20013;&#30340;&#31616;&#21333;&#35777;&#26126;">&#182;</a></h1><p>报告人:黄开乐</p>
+<h1 id="Z3&#20013;&#30340;&#31616;&#21333;&#35777;&#26126;">Z3&#20013;&#30340;&#31616;&#21333;&#35777;&#26126;<a class="anchor-link" href="#Z3&#20013;&#30340;&#31616;&#21333;&#35777;&#26126;">&#182;</a></h1><p>报告人:黄开乐</p>
 <p>报告时间:2020/4/30</p>
+<p><a href="https://nbviewer.jupyter.org/format/slides/github/hengxin/sat-smt-satisfying/blob/master/seminar/2020-04-30-huang/Proof_in_z3.ipynb#/">在线观看幻灯片</a></p>
 
 </div>
 </div>
-</div></section><section>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip3 install RISE
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13226,7 +13115,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13238,7 +13127,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13252,7 +13141,46 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section><section>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">z3</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">BitVec</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">BitVec</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">BitVec</span><span class="p">(</span><span class="s1">&#39;output &#39;</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">Solver</span> <span class="p">()</span>
+<span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="n">y</span><span class="o">==</span> <span class="n">output</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">add</span> <span class="p">(((</span><span class="n">y</span><span class="o">&amp;</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="mh">0xfffffffe</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">y</span><span class="o">+</span><span class="n">x</span><span class="p">)</span><span class="o">!=</span> <span class="n">output</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">check</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>unsat
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13264,7 +13192,46 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section><section>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="ch">#!/ usr/bin/python</span>
+<span class="kn">from</span> <span class="nn">z3</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">BitVec</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">BitVec</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">BitVec</span><span class="p">(</span><span class="s1">&#39;output &#39;</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">Solver</span> <span class="p">()</span>
+<span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="n">y</span><span class="o">==</span> <span class="n">output</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">add</span> <span class="p">(((</span><span class="n">y</span><span class="o">&amp;</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="mh">0xfffffffffffffffe</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">y</span><span class="o">+</span><span class="n">x</span><span class="p">)</span><span class="o">!=</span> <span class="n">output</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">check</span> <span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>unsat
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13277,7 +13244,46 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section><section>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="ch">#!/ usr/bin/python</span>
+<span class="kn">from</span> <span class="nn">z3</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">BitVec</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">BitVec</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">BitVec</span><span class="p">(</span><span class="s1">&#39;output &#39;</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">Solver</span> <span class="p">()</span>
+<span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="n">y</span><span class="o">==</span> <span class="n">output</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">-</span> <span class="p">((</span><span class="n">x</span> <span class="o">&amp;</span> <span class="n">y</span><span class="p">)</span> <span class="o">&lt;&lt;</span><span class="mi">1</span><span class="p">))</span> <span class="o">!=</span> <span class="n">output</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">check</span> <span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>unsat
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13286,18 +13292,25 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="&#19968;&#20010;&#26356;&#22797;&#26434;&#30340;&#20363;&#23376;">&#19968;&#20010;&#26356;&#22797;&#26434;&#30340;&#20363;&#23376;<a class="anchor-link" href="#&#19968;&#20010;&#26356;&#22797;&#26434;&#30340;&#20363;&#23376;">&#182;</a></h2><h3 id="sorting-network">sorting network<a class="anchor-link" href="#sorting-network">&#182;</a></h3><p>简单介绍一下sorting network
 <img src="figs/exsorting.png" alt="New Project"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>下面这个sorting network可以实现排序嘛？
 <img src="figs/sorting_network.png" alt="New Project"></p>
 
 </div>
 </div>
-</div></section><section>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
@@ -13379,7 +13392,7 @@ a.anchor-link {
 </div>
 </div>
 
-</div></section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13388,17 +13401,21 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#35777;&#26126;&#20013;&#30340;&#23567;&#25216;&#24039;">&#35777;&#26126;&#20013;&#30340;&#23567;&#25216;&#24039;<a class="anchor-link" href="#&#35777;&#26126;&#20013;&#30340;&#23567;&#25216;&#24039;">&#182;</a></h2><h2 id="If-else&#20998;&#25903;&#30340;&#35777;&#26126;">If-else&#20998;&#25903;&#30340;&#35777;&#26126;<a class="anchor-link" href="#If-else&#20998;&#25903;&#30340;&#35777;&#26126;">&#182;</a></h2><p>!(a || b) ? h : !(a == b) ? f : g</p>
-<p>!(!a || !b) ? g : (!a &amp;&amp; !b) ? h : f</p>
-<p>这里用If(a, b, c)来表示 if (a) then (b) else (c)</p>
+<h2 id="&#35777;&#26126;&#20013;&#29305;&#23450;&#32454;&#33410;&#30340;&#22788;&#29702;:">&#35777;&#26126;&#20013;&#29305;&#23450;&#32454;&#33410;&#30340;&#22788;&#29702;:<a class="anchor-link" href="#&#35777;&#26126;&#20013;&#29305;&#23450;&#32454;&#33410;&#30340;&#22788;&#29702;:">&#182;</a></h2><ul>
+<li>涉及机器数溢出的证明</li>
+<li>if-else 类恒等式的证明</li>
+<li>封装函数</li>
+<li>"If and only if" 的证明格式</li>
+<li>巧设判别方式</li>
+</ul>
 
 </div>
 </div>
-</div></section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13413,7 +13430,112 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section><section>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="ch">#!/ usr/bin/python</span>
+<span class="kn">from</span> <span class="nn">z3</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">BitVec</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mi">65</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">BitVec</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="mi">65</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">BitVec</span><span class="p">(</span><span class="s1">&#39;output&#39;</span><span class="p">,</span><span class="mi">65</span><span class="p">)</span>
+
+<span class="n">long_x</span> <span class="o">=</span> <span class="n">BitVec</span><span class="p">(</span><span class="s1">&#39;long_x&#39;</span><span class="p">,</span> <span class="mi">65</span><span class="p">)</span>
+<span class="n">long_y</span> <span class="o">=</span> <span class="n">BitVec</span><span class="p">(</span><span class="s1">&#39;long_y&#39;</span><span class="p">,</span> <span class="mi">65</span><span class="p">)</span>
+<span class="nb">sum</span> <span class="o">=</span> <span class="n">BitVec</span><span class="p">(</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="mi">65</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">Solver</span><span class="p">()</span>
+<span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ULT</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mh">0xffffffffffffffff</span><span class="p">),</span><span class="n">ULT</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mh">0xffffffffffffffff</span><span class="p">))</span>
+<span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">output</span> <span class="o">==</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">((((</span><span class="n">y</span><span class="o">^</span><span class="n">x</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">y</span> <span class="o">&amp;</span> <span class="n">x</span><span class="p">))</span> <span class="o">!=</span> <span class="n">output</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">check</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">model</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>sat
+[y = 9223372036852744192,
+ x = 9223372036856905728,
+ output = 27670116110564376576]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="If-else&#20998;&#25903;&#30340;&#35777;&#26126;">If-else&#20998;&#25903;&#30340;&#35777;&#26126;<a class="anchor-link" href="#If-else&#20998;&#25903;&#30340;&#35777;&#26126;">&#182;</a></h2><p>!(a || b) ? h : !(a == b) ? f : g</p>
+<p>!(!a || !b) ? g : (!a &amp;&amp; !b) ? h : f</p>
+<p>这里用If(a, b, c)来表示 if (a) then (b) else (c)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="ch">#!/ usr/bin/python</span>
+<span class="kn">from</span> <span class="nn">z3</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">output1</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="s1">&#39;output1&#39;</span><span class="p">)</span>
+<span class="n">output2</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="s1">&#39;output2&#39;</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">Solver</span><span class="p">()</span>
+<span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">output1</span> <span class="o">==</span> <span class="n">If</span><span class="p">(</span><span class="n">Not</span><span class="p">(</span><span class="n">Or</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)),</span> <span class="n">h</span><span class="p">,</span> <span class="n">If</span><span class="p">(</span> <span class="n">Not</span><span class="p">(</span><span class="n">a</span><span class="o">==</span><span class="n">b</span><span class="p">),</span> <span class="n">f</span><span class="p">,</span> <span class="n">g</span> <span class="p">)</span> <span class="p">))</span>
+<span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">output2</span> <span class="o">==</span> <span class="n">If</span><span class="p">(</span> <span class="n">Not</span><span class="p">(</span><span class="n">Or</span><span class="p">(</span><span class="n">Not</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="n">Not</span><span class="p">(</span><span class="n">b</span><span class="p">))</span> <span class="p">),</span> <span class="n">g</span><span class="p">,</span> <span class="n">If</span><span class="p">(</span> <span class="n">And</span><span class="p">(</span> <span class="n">Not</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="n">Not</span><span class="p">(</span><span class="n">b</span><span class="p">)),</span> <span class="n">h</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="p">))</span> 
+<span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">output1</span> <span class="o">!=</span> <span class="n">output2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">check</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>unsat
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13424,7 +13546,55 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section><section>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">z3</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="c1"># Find numbers x and y such that floor(x + y) != floor(x) + floor(y) and</span>
+<span class="c1"># ceiling(x + y) != ceiling(x) + ceiling(y).</span>
+<span class="k">def</span> <span class="nf">floor</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">&amp;</span><span class="mh">0xff00</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">ceiling</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">If</span><span class="p">((</span><span class="n">x</span><span class="o">&amp;</span><span class="mh">0xff</span><span class="p">)</span><span class="o">!=</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="o">&amp;</span><span class="mh">0xff00</span><span class="p">)</span><span class="o">+</span><span class="mh">0x100</span> <span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="n">s</span><span class="o">=</span><span class="n">Solver</span> <span class="p">()</span>
+<span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">BitVecs</span><span class="p">(</span><span class="s1">&#39;x y&#39;</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">floor</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span> <span class="o">!=</span> <span class="n">floor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">floor</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ceiling</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span> <span class="o">!=</span> <span class="n">ceiling</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">ceiling</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">check</span> <span class="p">())</span>
+<span class="n">m</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">model</span> <span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;x=0x</span><span class="si">%04x</span><span class="s2"> or </span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span> <span class="n">as_long</span> <span class="p">(),</span> <span class="nb">float</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span> <span class="n">as_long</span> <span class="p">())</span><span class="o">/</span><span class="mh">0x100</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;y=0x</span><span class="si">%04x</span><span class="s2"> or </span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="o">.</span> <span class="n">as_long</span> <span class="p">(),</span> <span class="nb">float</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="o">.</span> <span class="n">as_long</span> <span class="p">())</span><span class="o">/</span><span class="mh">0x100</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>sat
+x=0x6080 or 96.500000
+y=0xf480 or 244.500000
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13433,74 +13603,206 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section></section>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">z3</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Prove each of the following statements about inequalities with the floor and ceiling ,</span>
+<span class="sd">where x is a real number and n is an integer.</span>
+<span class="sd">a. floor(x) &lt; n iff x &lt; n.</span>
+<span class="sd">b. n &lt; ceiling(x) iff n &lt; x.</span>
+<span class="sd">c. n &lt;= floor(x) iff n &lt;= x.</span>
+<span class="sd">d. floor(x) &lt;= n iff x &lt;= n.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="k">def</span> <span class="nf">floor</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">&amp;</span><span class="mh">0xff00</span>
+<span class="k">def</span> <span class="nf">ceiling</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">If</span><span class="p">((</span><span class="n">x</span><span class="o">&amp;</span><span class="mh">0xff</span><span class="p">)</span><span class="o">!=</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="o">&amp;</span><span class="mh">0xff00</span><span class="p">)</span><span class="o">+</span><span class="mh">0x100</span> <span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="n">s</span><span class="o">=</span><span class="n">Solver</span> <span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">BitVec</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">BitVec</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">n</span><span class="o">&amp;</span><span class="mh">0xff</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># n is always integer , it has no fraction</span>
+<span class="c1"># prevent integer overflow , x and n must be positive</span>
+<span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="mh">0x8000</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">n</span><span class="o">&lt;</span><span class="mh">0x8000</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">((</span> <span class="n">floor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">)</span> <span class="o">!=</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">))</span> <span class="c1"># a</span>
+<span class="c1">#s.add((n &lt; ceiling(x)) != (n &lt; x)) # b</span>
+<span class="c1">#s.add((n &lt;= floor(x)) != (n &lt;= x)) # c</span>
+<span class="c1">#s.add(( floor(x) &lt;= n) != (x &lt;= n)) # d</span>
+<span class="c1"># must be unsat for a/b/c/d</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">check</span> <span class="p">())</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 
-<script>
+<div class="output_wrapper">
+<div class="output">
 
-require(
-    {
-      // it makes sense to wait a little bit when you are loading
-      // reveal from a cdn in a slow connection environment
-      waitSeconds: 15
-    },
-    [
-      "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/head.min.js",
-      "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/js/reveal.js"
-    ],
 
-    function(head, Reveal){
+<div class="output_area">
 
-        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
-        Reveal.initialize({
-            controls: true,
-            progress: true,
-            history: true,
+    <div class="prompt"></div>
 
-            transition: "slide",
 
-            // Optional libraries used to extend on reveal.js
-            dependencies: [
-                { src: "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/classList.js",
-                  condition: function() { return !document.body.classList; } },
-                { src: "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/notes/notes.js",
-                  async: true,
-                  condition: function() { return !!document.body.classList; } }
-            ]
-        });
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>unsat
+</pre>
+</div>
+</div>
 
-        var update = function(event){
-          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
-            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
-          }
-        };
+</div>
+</div>
 
-        Reveal.addEventListener('slidechanged', update);
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#24039;&#35774;&#21028;&#21035;&#26041;&#24335;">&#24039;&#35774;&#21028;&#21035;&#26041;&#24335;<a class="anchor-link" href="#&#24039;&#35774;&#21028;&#21035;&#26041;&#24335;">&#182;</a></h2><p>在证明中，我们对任意合法输入，计算其输出，再跟逻辑上正确的答案进行比对。</p>
+<p>如果无法统一给出逻辑上正确的答案呢？</p>
 
-        function setScrollingSlide() {
-            var scroll = false
-            if (scroll === true) {
-              var h = $('.reveal').height() * 0.95;
-              $('section.present').find('section')
-                .filter(function() {
-                  return $(this).height() > h;
-                })
-                .css('height', 'calc(95vh)')
-                .css('overflow-y', 'scroll')
-                .css('margin-top', '20px');
-            }
-        }
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#19968;&#20010;&#20363;&#23376;">&#19968;&#20010;&#20363;&#23376;<a class="anchor-link" href="#&#19968;&#20010;&#20363;&#23376;">&#182;</a></h3><p>BitReverse问题
+<img src="figs/reverse.png" alt="New Project"></p>
+<p>验证这个算法计算结果是正确的</p>
 
-        // check and set the scrolling slide every time the slide change
-        Reveal.addEventListener('slidechanged', setScrollingSlide);
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#25105;&#20204;&#30340;&#22256;&#22659;">&#25105;&#20204;&#30340;&#22256;&#22659;<a class="anchor-link" href="#&#25105;&#20204;&#30340;&#22256;&#22659;">&#182;</a></h2><p>对于给定的输出，我们直接和对应的标准解进行比对</p>
 
-    }
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#35299;&#20915;&#26041;&#26696;">&#35299;&#20915;&#26041;&#26696;<a class="anchor-link" href="#&#35299;&#20915;&#26041;&#26696;">&#182;</a></h3><p>对output进行 "微操" ，从而对新的output能给出统一的标准解</p>
+<p>这里我们对x进行两次BitReverse，这时标准解应该为x，我们拿output和x比对</p>
 
-);
-</script>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="kn">from</span> <span class="nn">z3</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="c1"># from Henry Warren &#39;s &quot;Hacker &#39;s Delight&quot;, Chapter 7</span>
+<span class="c1"># Or: https :// github.com/torvalds/linux/blob/master/include/linux/bitrev.h</span>
+<span class="c1"># default right shift in Z3 is arithmetical , so I&#39;m using Z3&#39;s LShR() function here ,which is logical shift right</span>
 
+<span class="k">def</span> <span class="nf">bitrev8</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">LShR</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">LShR</span><span class="p">(</span><span class="n">x</span> <span class="o">&amp;</span> <span class="mh">0xCC</span> <span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="p">((</span><span class="n">x</span> <span class="o">&amp;</span> <span class="mh">0x33</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">LShR</span><span class="p">(</span><span class="n">x</span> <span class="o">&amp;</span> <span class="mh">0xAA</span> <span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="p">((</span><span class="n">x</span> <span class="o">&amp;</span> <span class="mh">0x55</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span>
+<span class="c1"># these &quot;unoptimized&quot; versions are constructed like a Russian doll ...</span>
+
+<span class="k">def</span> <span class="nf">bitrev16_unoptimized</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">bitrev8</span><span class="p">(</span><span class="n">x</span> <span class="o">&amp;</span> <span class="mh">0xff</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">bitrev8</span><span class="p">(</span><span class="n">LShR</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">8</span><span class="p">)))</span>
+
+<span class="k">def</span> <span class="nf">bitrev32_unoptimized</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">bitrev16_unoptimized</span><span class="p">(</span><span class="n">x</span> <span class="o">&amp;</span> <span class="mh">0xffff</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">bitrev16_unoptimized</span><span class="p">(</span><span class="n">LShR</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">16</span><span class="p">)))</span>
+
+<span class="k">def</span> <span class="nf">bitrev32</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">LShR</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">LShR</span><span class="p">(</span><span class="n">x</span> <span class="o">&amp;</span> <span class="mh">0xFF00FF00</span> <span class="p">,</span> <span class="mi">8</span><span class="p">)</span> <span class="o">|</span> <span class="p">((</span><span class="n">x</span> <span class="o">&amp;</span> <span class="mh">0x00FF00FF</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">LShR</span><span class="p">(</span><span class="n">x</span> <span class="o">&amp;</span> <span class="mh">0xF0F0F0F0</span> <span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">|</span> <span class="p">((</span><span class="n">x</span> <span class="o">&amp;</span> <span class="mh">0x0F0F0F0F</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">LShR</span><span class="p">(</span><span class="n">x</span> <span class="o">&amp;</span> <span class="mh">0xCCCCCCCC</span> <span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="p">((</span><span class="n">x</span> <span class="o">&amp;</span> <span class="mh">0x33333333</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">LShR</span><span class="p">(</span><span class="n">x</span> <span class="o">&amp;</span> <span class="mh">0xAAAAAAAA</span> <span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="p">((</span><span class="n">x</span> <span class="o">&amp;</span> <span class="mh">0x55555555</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="k">def</span> <span class="nf">bitrev64_unoptimized</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="c1"># both versions must work:</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">bitrev32_unoptimized</span><span class="p">(</span><span class="n">x</span> <span class="o">&amp;</span> <span class="mh">0xffffffff</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">32</span><span class="p">)</span> <span class="o">|</span> <span class="n">bitrev32_unoptimized</span><span class="p">(</span><span class="n">LShR</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">32</span><span class="p">))</span>
+    <span class="c1">#return (bitrev32(x &amp; 0xffffffff) &lt;&lt; 32) | bitrev32(LShR(x, 32))</span>
+    
+<span class="c1"># copypasted from CADO -NFS 2.3.0 , http ://cado -nfs.gforge.inria.fr/download.html</span>
+<span class="k">def</span> <span class="nf">bitrev64</span> <span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">LShR</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="mi">32</span><span class="p">)</span> 
+    <span class="n">m</span> <span class="o">=</span> <span class="mh">0x0000ffff0000ffff</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">LShR</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">m</span><span class="p">)</span> <span class="o">^</span> <span class="p">((</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">&amp;</span> <span class="o">~~</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="mh">0x00ff00ff00ff00ff</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">LShR</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">m</span><span class="p">)</span> <span class="o">^</span> <span class="p">((</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="mh">0x0f0f0f0f0f0f0f0f</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">LShR</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">m</span><span class="p">)</span> <span class="o">^</span> <span class="p">((</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="mh">0x3333333333333333</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">LShR</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">m</span><span class="p">)</span> <span class="o">^</span> <span class="p">((</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="mh">0x5555555555555555</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">LShR</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">m</span><span class="p">)</span> <span class="o">^</span> <span class="p">((</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">m</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a</span>
+
+<span class="n">s</span><span class="o">=</span><span class="n">Solver</span> <span class="p">()</span>
+<span class="n">x</span><span class="o">=</span><span class="n">BitVec</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+<span class="c1"># tests.</span>
+<span class="c1"># uncomment any.</span>
+<span class="c1"># must be &quot;unsat&quot; in each case.</span>
+<span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">bitrev64</span><span class="p">(</span><span class="n">bitrev64_unoptimized</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">!=</span><span class="n">x</span><span class="p">)</span>
+<span class="c1"># these are involutory functions , i.e., f(f(x))=x</span>
+<span class="c1">#s.add(bitrev64_unoptimized(bitrev64_unoptimized(x))!=x)</span>
+<span class="c1">#s.add(bitrev64(bitrev64(x))!=x)</span>
+<span class="c1"># must be &quot;unsat&quot;, no counterexample found</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">check</span> <span class="p">(),</span><span class="n">s</span><span class="o">.</span><span class="n">model</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>sat [x = 281462091808770]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
 </body>
+
+ 
 
 
 </html>
