@@ -10,3 +10,7 @@
 ## Tutorials
 
 - [Z3 wiki](https://github.com/Z3Prover/z3/wiki)
+
+## Examples
+
+- [Z3Examples](https://notebooks.azure.com/nbjorner/projects/z3examples)
