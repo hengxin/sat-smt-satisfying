@@ -7,6 +7,7 @@ SAT and SMT
 ### Theory
 - [SMT:CACM2011](resources/papers/CACM2011%20Satisfiability%20Modulo%20Theories%20Introduction%20and%20Applications.pdf)
   > A general introduction to SMT and its applications.
+- [(coursera) Automated Reasoning: Satisfiability](https://www.coursera.org/learn/automated-reasoning-sat)
 - [An Introduction to SAT and SMT 2020](https://www.bilibili.com/video/BV1Xa4y1e7wT?p=5&share_source=copy_web)
   > A course on the theory of SAT and SMT
   - [A Peek Inside SAT Solvers](https://www.bilibili.com/video/BV18X4y1g7ew?share_source=copy_web)
