@@ -1,0 +1,72 @@
+# Outline
+
+- SAT Basics
+  - Definition and Terminologies
+    - SAT in General
+	- SAT in CNF
+  - SAT by Examples
+    - Graph Coloring
+	- Matching
+	- Puzzles
+	  - Logic Puzzles
+	  - Sudoku
+	  - Mutilated Chessboard (NFM'2019)
+	- Circuit
+	  - Equivalence Checking
+	- Planning
+	- Program Analysis (SMT?)
+	  - Symbolic Execution
+	- Security
+	- ...
+  - Using SAT Solvers
+    - sat competition
+    - minisat
+	- kissat
+	- monosat
+	- mathsat
+	- maplesat
+- SAT Solving Theory (for Complete SAT Solvers)
+  - Resolution based
+    - Saturation Algorithm
+    - Unit Propagation
+	- Tractable SAT Variants
+	  - Horn Clauses
+	  - 2SAT
+    - DP (1960; Bounded Variable Elimination)
+  - Search based
+    - DPLL (1962)
+    - CDCL (1996)
+	  - CD (Backjumping)
+	  - CL (Clause Learning)
+	    - UIP, Last UIP
+	    - Antecedents Resolution
+		- Minimized Learnt Clauses
+	  - SAT by Examples Revisited
+	    - Learnt Clauses (Conflict Analysis)
+	  - Data Structures
+	    - Implication Graph
+	  - Heuristics
+	    - Branching
+		- Phase Saving
+		- Learnt Clause Removal
+		- Restart
+- Implementations of SAT Solvers
+    - minisat
+	- kissat
+	- monosat
+	- mathsat
+	- CaDicaL
+- Advanced Topics
+  - Incremental SAT Solver
+  - Unsat Core
+  - Phase Transition
+  - Parallel
+  - SAT-based Model Checking
+  - Other Tools
+	- Rosette
+- Incomplete SAT Solvers
+  - Local Search
+- Complexity of SAT Solvers
+  - Theoretical Complexity
+  - Practical Complexity
+- SAT and ML
