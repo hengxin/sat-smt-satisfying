@@ -1,5 +1,8 @@
 # minisat
 
+## Homepage
+- [minisat.se](http://minisat.se/Main.html)
+
 ## Installation
 - `sudo apt install minisat`
 
@@ -18,6 +21,7 @@
   - `minisat pre=once cnf-5-3 cnf-5-3.out`
   - It also explains how to get more solutions.
 - [Python MiniSat Examples](https://python.hotexamples.com/examples/satispy.solver/Minisat/-/python-minisat-class-examples.html)
+- [minisat - Man Page](https://www.mankier.com/1/minisat#)
 - [niklasso/minisat-examples](https://github.com/niklasso/minisat-examples)
   - `Minumerate`: This simple example gives solutions to two frequently recurring
     encoding patterns: enumerating models and finding minimal
@@ -56,3 +60,14 @@
   - `Main solve method (assumptions given in 'assumptions').`
 - [`varBumpActivity`](https://github.com/niklasso/minisat/blob/37dc6c67e2af26379d88ce349eb9c4c6160e8543/minisat/core/Solver.h#L260)
   - `Increase a variable with the current 'bump' value.`
+
+### [`Solver.cc`](https://github.com/niklasso/minisat/blob/master/minisat/core/Solver.cc)
+- [`Lit Solver::pickBranchLit`](https://github.com/niklasso/minisat/blob/37dc6c67e2af26379d88ce349eb9c4c6160e8543/minisat/core/Solver.cc#L249)
+  - Random decision/Activity based decision/Choose polarity based on different polarity modes (global or per-variable)
+- [`Solver::analyze`](https://github.com/niklasso/minisat/blob/37dc6c67e2af26379d88ce349eb9c4c6160e8543/minisat/core/Solver.cc#L296)
+  - Generate conflict clause/Simplify conflict clause/Find correct backtrack level
+- [`Solver::propagate`](https://github.com/niklasso/minisat/blob/37dc6c67e2af26379d88ce349eb9c4c6160e8543/minisat/core/Solver.cc#L506)
+- [`Solver::solve_`](https://github.com/niklasso/minisat/blob/37dc6c67e2af26379d88ce349eb9c4c6160e8543/minisat/core/Solver.cc#L839)
+
+### [SimpSolver.h](https://github.com/niklasso/minisat/blob/master/minisat/simp/SimpSolver.h)
+### [SimpSolver.cc](https://github.com/niklasso/minisat/blob/master/minisat/simp/SimpSolver.cc)
