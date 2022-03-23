@@ -17,10 +17,17 @@
 - [MiniSAT User Guide: How to use the MiniSAT SAT Solver](https://dwheeler.com/essays/minisat-user-guide.html)
   - `minisat pre=once cnf-5-3 cnf-5-3.out`
   - It also explains how to get more solutions.
+- [Python MiniSat Examples](https://python.hotexamples.com/examples/satispy.solver/Minisat/-/python-minisat-class-examples.html)
 - [niklasso/minisat-examples](https://github.com/niklasso/minisat-examples)
   - `Minumerate`: This simple example gives solutions to two frequently recurring
     encoding patterns: enumerating models and finding minimal
     models.
+- [MiniSat FAQ](https://www.msoos.org/minisat-faq/)
+  - Why doesn’t MiniSat find the solution to my problem that has at most 2-3 really important variables?
+    - `Try lowering the random pick frequency by giving the -rnd-freq=X, setting X to be very-very low.`
+  - I have a simple linear set of equations, and MiniSat cannot solve it!
+    - `Try CryptoMiniSat`
+- [ucacbbl/MiniSAT](http://www0.cs.ucl.ac.uk/staff/ucacbbl/minisat/)
 
 ## Cores
 ### [`Solver.h`](https://github.com/niklasso/minisat/blob/master/minisat/core/Solver.h)
